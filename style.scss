@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+*
+
+body {
+    font: 18px "Nunito", sans-serif;
+    color:rgb(0, 0, 0);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background: url("bg.jpeg") no-repeat center;
+        background-size: cover;
+        animation: backgroundZoomAnimate 20s forwards;
+    }
+}
+
+@keyframes backgroundZoomAnimate {
+    from {
+        transform : scale(1);
+    }
+    to {
+        transform: scale(1.3);
+    }
+}
+
+.profile-card {
+    position: relative;
+    width: 450px;
+    height: 200px;
+    // height: 450px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+}
+
+.profile-card:hover {
+    height: 520px;
+}
+
+.imgBx {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    transform: translate(-50%);
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.profile-card:hover .imgBx {
+    width: 250px;
+    height: 250px;
+}
+
+.imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.profile-card .content .profile-card__desc {
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s;
+    transform: translateY(200px);
+}
+
+.profile-card:hover .content .profile-card__desc {
+    transform: translateY(0px);
+}
+
+.profile-card .content .profile-card__desc h1 {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #555
+    line-height 1.2em;
+}
+
+.profile-card .content .profile-card__desc h1 span {
+    font-size: 0.75em;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.profile-card .content .profile-card__desc h2 {
+    font-size: 15px;
+    font-weight: 400;
+    opacity: .8;
+}
+
+.profile-card .content .profile-card__info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.profile-card .content .profile-card__info h3 {
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+    line-height: 1.2em;
+    font-weight: 600;
+}
+
+.profile-card .content .profile-card__info h3 span {
+    font-size: 0.85em;
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+.profile-card__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;  
+
+    @media screen and (max-width: 576px) {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        a {
+            display: inline-flex;
+            width: 55px;
+            height: 55px;
+            margin: 15px;
+            border-radius: 40%;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            flex-shrink: 0;
+            transition: a11 .2s;
+
+            @media screen and (max-width: 768px) {
+                width: 50px;
+                height: 50px;
+                margin: 10px;
+            }
+
+            @media screen and (min-width: 768px) {
+                &:hover {
+                    transform: scale(1.2) translateY(-5px);
+                }
+            }
+
+            &.Facebook {
+                background: linear-gradient(45deg, #3b5998, #0078d7);
+                box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
+            }
+
+            &.Instagram {
+                background: linear-gradient(45deg, #405de6,
+                #5851db,
+                #833ab4,
+                #c13584,
+                #e1306c,
+                #fd1d1d);
+                box-shadow: 0 4px 30px rgba(120, 64, 190, 0.6);
+            }
+
+            &.Linkedin {
+                background: linear-gradient(45deg, #0072b1, #0a7ebd);
+                box-shadow: 0 4px 30px rgba(19, 127, 212, 0.7);
+            }
+
+            &.Youtube {
+                background: linear-gradient(45deg, #b11212, #FF0000);
+                box-shadow: 0 4px 30px rgba(163, 17, 17, 0.6);
+            }
+        }
+    }
+
+
+
+    .blue {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 5px 0;
+        min-width: 180px;
+        border-radius: 40px;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all .2s;
+
+        @media screen and (max0width: 768px) {
+            min-width: 170px;
+        }
+
+        @media screen and (max-width: 576px) {
+            min-width: inherit;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media screen and (min-width: 576px) {
+        
+        .blue:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        .blue {
+            background: linear-gradient(45deg, #8f4242, #1c5b99);
+                box-shadow: 0 4px 30px rgba(93, 106, 116, 0.4);
+
+                .blue:hover {
+                    box-shadow: 0 7px 30px rgba(19, 127, 212, 0.75);
+                }
+            }
+
+            .orange {
+                background: linear-gradient(45deg, #d5135a, #f05924);
+                box-shadow: 0 4px 30px rgba(223, 45, 70, 0.35);
+
+                &:hover {
+                    box-shadow: 0 7px 30px rgba(223, 45, 70, 0.75);
+                }
+        }
+    }
+}
+
+
+
+
+// .profile-card {
+//     box-shadow: 0 18px 200px -60px white;
+//     border-radius: 50px;
+//     width: 650px;
+//     position: relative;
+//     backdrop-filter: blur(15px);
+//     border: 2px solid white;
+//     padding: 3rem 5rem;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 40px;
+
+//     @media screen and (max-width: 768px){
+//         width: auto;
+//     }
+    
+//     &__img img {
+//         margin: auto;
+//         width: 200px;
+//         height: 200px;
+//         border-radius: 50%;
+//         object-fit: cover;
+//         display: block;
+//         box-shadow: 0 10px 60px -10px rgba(13, 28, 39, .5);
+//     }
+
+//     &__desc {
+//         text-align: center;
+//         display: flex;
+//         flex-direction: column;
+//         gap: 25px;
+
+//         h1 {
+//             font-size: 2.5rem;
+//             font-weight: bold;
+
+//             & + div {
+//                 font-size: 20px;
+//             }
+//         }
+//     }
+
+//     &__info {
+//         display: flex;
+//         justify-content: center;
+//         gap: 50px;
+
+//         @media screen and (max-width: 576px) {
+//             gap: 30px
+//         }
+
+//         & > div {
+//             text-transform: uppercase;
+//             font-weight: bold;
+//             letter-spacing: 1px;
+//             text-align: center;
+
+//             & > *:first-child {
+//                 font-weight: bold;
+//                 letter-spacing: 3px;
+//                 font-size: 2rem;
+//                 margin-bottom: 15px;
+//             }
+
+//             & > *:last-child {
+//                 font-size: 16px;
+//                 opacity: .7;
+//             }
+//         }
+//     }
+
+    // &__social {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     flex-wrap: wrap;
+
+    //     a {
+    //         display: inline-flex;
+    //         width: 55px;
+    //         height: 55px;
+    //         margin: 15px;
+    //         border-radius: 40%;
+    //         align-items: center;
+    //         justify-content: center;
+    //         color: white;
+    //         position: relative;
+    //         flex-shrink: 0;
+    //         transition: a11 .2s;
+
+    //         @media screen and (max-width: 768px) {
+    //             width: 50px;
+    //             height: 50px;
+    //             margin: 10px;
+    //         }
+
+    //         @media screen and (min-width: 768px) {
+    //             &:hover {
+    //                 transform: scale(1.2) translateY(-5px);
+    //             }
+    //         }
+
+    //         &.Facebook {
+    //             background: linear-gradient(45deg, #3b5998, #0078d7);
+    //             box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
+    //         }
+
+    //         &.Instagram {
+    //             background: linear-gradient(45deg, #405de6,
+    //             #5851db,
+    //             #833ab4,
+    //             #c13584,
+    //             #e1306c,
+    //             #fd1d1d);
+    //             box-shadow: 0 4px 30px rgba(120, 64, 190, 0.6);
+    //         }
+
+    //         &.Linkedin {
+    //             background: linear-gradient(45deg, #0072b1, #0a7ebd);
+    //             box-shadow: 0 4px 30px rgba(19, 127, 212, 0.7);
+    //         }
+
+    //         &.Youtube {
+    //             background: linear-gradient(45deg, #b11212, #FF0000);
+    //             box-shadow: 0 4px 30px rgba(163, 17, 17, 0.6);
+    //         }
+    //     }
+    // }
+
+//     &__actions {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         gap: 2rem;
+
+//         @media screen and (max-width: 576px) {
+//             flex-direction: column;
+//             gap: 1.5rem;
+//         }
+
+//         &>button {
+//             font-weight: bold;
+//             font-size: 22px;
+//             padding: 15px 0;
+//             min-width: 250px;
+//             border-radius: 50px;
+//             text-align: center;
+//             color: white;
+//             cursor: pointer;
+//             transition: all .2s;
+
+//             @media screen and (max-width: 768px) {
+//                 min-width: 170px;
+//             }
+
+//             @media screen and (max-width: 576px) {
+//                 min-width: inherit;
+//                 width: 100%;
+//                 max-width: 100%;
+//             }
+
+//             @media screen and (min-width: 576px) {
+//                 &.hover {
+//                     transform: translateY(-5px);
+//                 }
+//             }
+
+//             &.blue{
+//                 background: linear-gradient(45deg, #1da1f2, #0e71c8);
+//                 box-shadow: 0 4px 30px rgba(19, 127, 212, 0.4);
+
+//                 &:hover {
+//                     box-shadow: 0 7px 30px rgba(19, 127, 212, 0.75);
+//                 }
+//             }
+
+//             &.orange {
+//                 background: linear-gradient(45deg, #d5135a, #f05924);
+//                 box-shadow: 0 4px 30px rgba(223, 45, 70, 0.35);
+
+//                 &:hover {
+//                     box-shadow: 0 7px 30px rgba(223, 45, 70, 0.75);
+//                 }
+//             }
+//         }
+//     }
+// }
